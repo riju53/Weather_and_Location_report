@@ -9,10 +9,6 @@ from langchain_community.tools import DuckDuckGoSearchRun
 from langgraph.prebuilt import create_react_agent
 
 
-# =========================================================
-# 1. PAGE CONFIGURATION
-# =========================================================
-
 st.set_page_config(
     page_title="AI Travel Assistant",
     page_icon="🌍",
@@ -20,9 +16,6 @@ st.set_page_config(
 )
 
 
-# =========================================================
-# 2. API KEYS
-# =========================================================
 
 # For learning/local development you can temporarily use:
 # HF_TOKEN = "your_huggingface_token"
@@ -32,10 +25,6 @@ HF_TOKEN = st.secrets["HF_TOKEN"]
 WEATHER_API_KEY = st.secrets["WEATHER_API_KEY"]
 
 
-# =========================================================
-# 3. SQLITE CHECKPOINTER
-# =========================================================
-
 conn = sqlite3.connect(
     "weather_db.sqlite",
     check_same_thread=False
@@ -44,9 +33,6 @@ conn = sqlite3.connect(
 saver = SqliteSaver(conn)
 
 
-# =========================================================
-# 4. LLM
-# =========================================================
 
 llm = HuggingFaceEndpoint(
     repo_id="Qwen/Qwen3-32B",
@@ -60,9 +46,7 @@ model = ChatHuggingFace(
 )
 
 
-# =========================================================
-# 5. WEATHER TOOL
-# =========================================================
+# WEATHER TOOL
 
 @tool
 def weather_update(location: str):
@@ -101,9 +85,7 @@ def weather_update(location: str):
     }
 
 
-# =========================================================
-# 6. ASTRONOMY TOOL
-# =========================================================
+# ASTRONOMY TOOL
 
 @tool
 def astronomy(city: str):
@@ -136,9 +118,7 @@ def astronomy(city: str):
     }
 
 
-# =========================================================
-# 7. DUCKDUCKGO SEARCH
-# =========================================================
+#  DUCKDUCKGO SEARCH
 
 search = DuckDuckGoSearchRun()
 
@@ -169,9 +149,7 @@ def detailed_city(location: str):
     return response
 
 
-# =========================================================
-# 8. SYSTEM PROMPT
-# =========================================================
+#  SYSTEM PROMPT
 
 system_prompt = """
 ROLE:
@@ -207,9 +185,7 @@ Provide:
 """
 
 
-# =========================================================
-# 9. CREATE LANGGRAPH AGENT
-# =========================================================
+#  CREATE LANGGRAPH AGENT
 
 agent = create_react_agent(
     model=model,
@@ -223,9 +199,7 @@ agent = create_react_agent(
 )
 
 
-# =========================================================
-# 10. STREAMLIT UI
-# =========================================================
+# STREAMLIT UI
 
 st.title("🌍 AI Travel Assistant")
 
@@ -235,9 +209,7 @@ st.write(
 )
 
 
-# =========================================================
 # SIDEBAR
-# =========================================================
 
 with st.sidebar:
 
@@ -260,9 +232,7 @@ with st.sidebar:
     )
 
 
-# =========================================================
 # USER INPUT
-# =========================================================
 
 location = st.text_input(
     "📍 Enter your destination",
@@ -270,9 +240,7 @@ location = st.text_input(
 )
 
 
-# =========================================================
 # GENERATE REPORT
-# =========================================================
 
 if st.button(
     "🚀 Generate Travel Report",
