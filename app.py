@@ -230,7 +230,7 @@ with st.sidebar:
         "🌙 Astronomy API\n\n"
         "🔎 DuckDuckGo Search\n\n"
         "🤖 Qwen LLM\n\n"
-        "🧠 LangGraph"
+        "🧠 LangChain"
     )
 
 
