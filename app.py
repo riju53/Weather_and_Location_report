@@ -22,7 +22,7 @@ st.set_page_config(
 # WEATHER_API_KEY = "your_weather_api_key"
 
 HF_TOKEN = st.secrets["HF_TOKEN"]
-WEATHER_API_KEY = st.secrets["weather_api_key "]
+#WEATHER_API_KEY = st.secrets["weather_api_key "]
 WEATHER_API_KEY = "b65988ddae944bf993993731262105"
 
 
