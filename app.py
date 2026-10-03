@@ -10,7 +10,7 @@ from langgraph.prebuilt import create_react_agent
 
 
 st.set_page_config(
-    page_title="AI Travel Assistant",
+    page_title="AI Weather and Location Details Assistant",
     page_icon="🌍",
     layout="wide"
 )
@@ -203,11 +203,11 @@ agent = create_react_agent(
 
 # STREAMLIT UI
 
-st.title("🌍 AI Travel Assistant")
+st.title("🌍 AI Weather and Location Details Assistant")
 
 st.write(
     "Get weather, astronomy and detailed location information "
-    "for your destination."
+    "for your Location."
 )
 
 
@@ -218,8 +218,8 @@ with st.sidebar:
     st.header("✈️ Travel Assistant")
 
     st.write(
-        "Enter a destination and let the AI generate "
-        "a complete travel report."
+        "Enter a City and let the AI generate "
+        "a complete weather and detaild city report."
     )
 
     st.divider()
