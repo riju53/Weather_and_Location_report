@@ -211,7 +211,7 @@ st.write(
 )
 
 
-# SIDEBAR
+# SIDEBAR   
 
 with st.sidebar:
 
