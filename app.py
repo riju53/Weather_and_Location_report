@@ -258,7 +258,7 @@ if st.button(
     else:
 
         with st.spinner(
-            f"🔍 Generating travel report for {location}..."
+            f"🔍 Generating detailed report for {location}..."
         ):
 
             try:
